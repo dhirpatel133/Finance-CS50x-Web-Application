@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+   <table class="table table-striped">
+       <thead>
+           <tr>
+               <th>Symbol</th>
+               <th>Name</th>
+               <th>Shares</th>
+               <th>Price</th>
+               <th>Total Price</th>
+           </tr>
+       </thead>
+       <tfoot>
+           <tr>
+               <td colspan="4"></td>
+               <td>{{sub_total}}</td>
+           </tr>
+       </tfoot>
+       <tbody>
+           {% for array in arrays %}
+           <tr>
+               <td>{{array["symbol"]}}</td>
+               <td>{{array["name"]}}</td>
+               <td>{{array["shares"]}}</td>
+               <td>{{array["price"]}}</td>
+               <td>{{array["total"]}}</td>
+           </tr>
+           {% endfor %}
+           <tr>
+               <td colspan="4">Available Cash</td>
+               <td>{{current_cash}}</td>
+           </tr>
+       </tbody>
+   </table>
+{% endblock %}
